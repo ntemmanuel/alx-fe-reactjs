@@ -10,11 +10,10 @@ function App() {
   return (
     <>
       {/* <WelcomeMessage /> */}
-      <UserProfile name="Alice" age="25" bio="Loves hiking and photography" />
-      <Header />
+      {/* <Header />
       <MainContent />
-      <Footer />
-     
+      <Footer /> */}
+      <UserProfile name="Alice" age="25" bio="Loves hiking and photography" />
     </>
     
   );
