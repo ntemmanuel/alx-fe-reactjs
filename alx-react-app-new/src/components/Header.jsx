@@ -5,7 +5,7 @@ function Header() {
             justifyContent: 'center', 
             alignItems: 'center', 
             padding: '20px', 
-           
+            backgroundColor: '#f0f4f8'
           }}>
             <h1 style={{
               width: '350px', 
