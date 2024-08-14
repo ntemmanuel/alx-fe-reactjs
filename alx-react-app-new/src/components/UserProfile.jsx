@@ -22,7 +22,7 @@ const UserProfile = (props) => {
               transition: 'transform 0.3s ease, box-shadow 0.3s ease'
             }}>
               <h2 style={{ 
-                color: '#007bff', 
+                color: 'blue', 
                 fontSize: '1.8rem', 
                 marginBottom: '10px'
               }}>
