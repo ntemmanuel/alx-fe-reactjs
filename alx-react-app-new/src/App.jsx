@@ -3,9 +3,11 @@ import MainContent from './components/MainContent';
 import Footer from './components/Footer';
 import UserProfile from './components/UserProfile';
 import Counter from './components/Counter';
-
+import ProfilePage from './ProfilePage';
+import UserContext from './UserContext';
 function App() {
-  
+  const userData = { name: "Jane Doe", email: "jane.doe@example.com" };
+
 
   return (
     <>
@@ -14,7 +16,10 @@ function App() {
       <Header />
       <MainContent />
       <Footer /> */}
-      <Counter initialCount={0} />
+      {/* <Counter initialCount={0} /> */}
+      <UserContext.Provider value={userData}>
+      <ProfilePage />
+    </UserContext.Provider>
     </>
     
   );
