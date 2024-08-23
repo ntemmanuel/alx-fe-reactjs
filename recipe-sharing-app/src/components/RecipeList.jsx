@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 
 const RecipeList = () => {
   const { filteredRecipes, recipes } = useRecipeStore((state) => ({
-    filteredRecipes: state.filteredRecipes,
-    recipes: state.recipes,
+    filteredRecipes: state.filteredRecipes || [],
+    recipes: state.recipes || [],
   }));
 
   const recipesToDisplay = filteredRecipes.length > 0 ? filteredRecipes : recipes;
