@@ -33,6 +33,14 @@ button:hover {
   background-color: #0056b3;
 }
 
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
 input, textarea {
   width: 100%;
   padding: 10px;
@@ -61,6 +69,15 @@ form {
 .recipe-card h3 {
   margin: 0 0 10px 0;
   color: #333;
+}
+
+.recipe-card a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.recipe-card a:hover {
+  text-decoration: underline;
 }
 
 .recipe-card p {
