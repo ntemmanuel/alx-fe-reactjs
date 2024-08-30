@@ -3,7 +3,7 @@ import React from 'react';
 // Import the controlled form
 import RegistrationForm from './components/RegistrationForm';
 // Import the Formik form (ensure correct import)
-import FormikForm from './components/formikForm'; // Adjusted to match the new filename
+import FormikForm from './components/FormikForm'; // Adjusted to match the new filename
 import './index.css';
 
 function App() {
