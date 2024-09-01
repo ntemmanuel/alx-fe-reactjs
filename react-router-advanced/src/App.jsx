@@ -1,4 +1,4 @@
-
+// src/App.jsx
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Home from './components/Home';
@@ -15,7 +15,7 @@ function App() {
         {/* Protected route example */}
         <Route path="/profile/*" element={<ProtectedRoute component={Profile} />} />
         {/* Dynamic routing example */}
-        <Route path="/post/:id" element={<BlogPost />} />
+        <Route path="/blog/:id" element={<BlogPost />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
