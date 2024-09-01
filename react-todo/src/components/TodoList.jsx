@@ -1,7 +1,8 @@
-
+// src/components/TodoList.jsx
 import React, { useState } from 'react';
+import AddTodoForm from './AddTodoForm';
+import './TodoList.css'; // Import the CSS file
 
-// Initial demo todos
 const initialTodos = [
   { id: 1, text: 'Learn React', completed: false },
   { id: 2, text: 'Build Todo App', completed: true },
@@ -11,7 +12,6 @@ const initialTodos = [
 function TodoList() {
   const [todos, setTodos] = useState(initialTodos);
 
-  // Function to add a new todo
   const addTodo = (text) => {
     const newTodo = {
       id: todos.length + 1,
@@ -21,7 +21,6 @@ function TodoList() {
     setTodos([...todos, newTodo]);
   };
 
-  // Function to toggle todo completion status
   const toggleTodo = (id) => {
     setTodos(
       todos.map((todo) =>
@@ -30,27 +29,23 @@ function TodoList() {
     );
   };
 
-  // Function to delete a todo
   const deleteTodo = (id) => {
     setTodos(todos.filter((todo) => todo.id !== id));
   };
 
   return (
-    <div>
-      <h1>Todo List</h1>
+    <div className="todo-container">
+      <h1 className="todo-title">Todo List</h1>
       <AddTodoForm addTodo={addTodo} />
-      <ul>
+      <ul className="todo-list">
         {todos.map((todo) => (
           <li
             key={todo.id}
+            className={`todo-item ${todo.completed ? 'completed' : ''}`}
             onClick={() => toggleTodo(todo.id)}
-            style={{
-              textDecoration: todo.completed ? 'line-through' : 'none',
-              cursor: 'pointer',
-            }}
           >
             {todo.text}
-            <button onClick={() => deleteTodo(todo.id)} style={{ marginLeft: '10px' }}>
+            <button className="delete-button" onClick={() => deleteTodo(todo.id)}>
               Delete
             </button>
           </li>
