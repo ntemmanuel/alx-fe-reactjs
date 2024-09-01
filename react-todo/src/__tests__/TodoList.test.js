@@ -2,7 +2,7 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import TodoList from './TodoList'; // Ensure the path is correct based on your project structure
+import TodoList from '../components/TodoList'; // Ensure the path is correct based on your project structure
 
 describe('TodoList Component', () => {
   // Test to verify that the TodoList component renders with initial todos
