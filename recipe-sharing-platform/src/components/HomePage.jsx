@@ -1,6 +1,7 @@
-// src/components/HomePage.jsx
+
 import React, { useState, useEffect } from 'react';
-import recipeData from '../data.json'; // Import the JSON file directly
+import recipeData from '../data.json'; 
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 
 const HomePage = () => {
   const [recipes, setRecipes] = useState([]);
@@ -11,7 +12,7 @@ const HomePage = () => {
   }, []);
 
   return (
-    <div className="container mx-auto p-4 bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 transform hover:scale-105 hover:border-indigo-500 border-2 border-transparent motion-safe:animate-fadeIn">
+    <div className="container mx-auto p-4">
       <h1 className="text-4xl font-bold text-center mb-8 text-gray-800">Recipe Sharing Platform</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
         {recipes.map((recipe) => (
@@ -27,12 +28,12 @@ const HomePage = () => {
             <div className="p-5">
               <h2 className="text-xl font-semibold mb-3 text-gray-900">{recipe.title}</h2>
               <p className="text-gray-600 mb-4">{recipe.summary}</p>
-              <a
-                href={`/recipes/${recipe.id}`}
+              <Link
+                to={`/recipe/${recipe.id}`} // Ensure this matches the route path defined in App.js
                 className="text-indigo-600 hover:text-indigo-800 hover:underline font-medium transition-colors"
               >
                 View Recipe →
-              </a>
+              </Link>
             </div>
           </div>
         ))}
