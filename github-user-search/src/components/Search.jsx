@@ -8,18 +8,36 @@ function Search() {
   const [searchResults, setSearchResults] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [page, setPage] = useState(1);
+  const [totalCount, setTotalCount] = useState(0);
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     setError('');
     setSearchResults([]);
+    setPage(1);
 
     try {
-      const data = await fetchAdvancedSearchResults({ username, location, minRepos });
+      const data = await fetchAdvancedSearchResults({ username, location, minRepos, page: 1 });
       setSearchResults(data.items);
+      setTotalCount(data.total_count);
     } catch (err) {
       setError('Something went wrong with the search.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const loadMoreResults = async (newPage) => {
+    setLoading(true);
+
+    try {
+      const data = await fetchAdvancedSearchResults({ username, location, minRepos, page: newPage });
+      setSearchResults(data.items);
+      setPage(newPage);
+    } catch (err) {
+      setError('Something went wrong while loading more results.');
     } finally {
       setLoading(false);
     }
@@ -81,6 +99,25 @@ function Search() {
           </div>
         ))}
       </div>
+
+      {totalCount > searchResults.length && (
+        <div className="mt-4 flex justify-between">
+          {page > 1 && (
+            <button
+              onClick={() => loadMoreResults(page - 1)}
+              className="p-2 bg-gray-500 text-white rounded"
+            >
+              Previous
+            </button>
+          )}
+          <button
+            onClick={() => loadMoreResults(page + 1)}
+            className="p-2 bg-gray-500 text-white rounded"
+          >
+            Next
+          </button>
+        </div>
+      )}
     </div>
   );
 }

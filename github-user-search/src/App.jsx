@@ -6,7 +6,7 @@ function App() {
   return (
     <Router>
       <div>
-        <h1>GitHub User Search</h1>
+        {/* <h1>GitHub User Search</h1> */}
         <Routes>
           <Route path="/" element={<Search />} />
         </Routes>
