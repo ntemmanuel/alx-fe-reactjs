@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const GITHUB_API_URL = 'https://api.github.com/search/users';
+const GITHUB_API_URL = 'https://api.github.com/search/users?q';
 
 export const fetchAdvancedSearchResults = async ({ username, location, minRepos, page = 1 }) => {
   // Construct the query with username, location, and repository count filters
